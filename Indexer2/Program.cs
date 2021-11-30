@@ -12,10 +12,10 @@ if (!File.Exists(confPath))
     Directory.CreateDirectory(Path.GetDirectoryName(confPath)!);
     File.WriteAllText(confPath, JsonSerializer.Serialize(HostConfig.CreateUninitialized(), jsonSerializerOption));
 }
-
 builder.Configuration.AddJsonFile(confPath, optional: false, reloadOnChange: true);
 
-//builder.Services.AddDbContext<IndexesContext>(opt=>);
+
+//builder.Services.AddDbContext<IndexesContext>(opt =>);
 var app = builder.Build();
 
 app.Use(async (context, next) =>
